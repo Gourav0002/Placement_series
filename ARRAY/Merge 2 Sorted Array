@@ -1,0 +1,36 @@
+Problem Link: https://www.codingninjas.com/studio/problems/sorted-array_6613259?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
+
+CODE:
+
+
+    i, j = 0, 0  
+    union = [] 
+
+    while i < len(a) and j < len(b):
+        if a[i] < b[j]:  
+            if not union or union[-1] != a[i]:
+                union.append(a[i])
+            i += 1
+        elif a[i] > b[j]: 
+            if not union or union[-1] != b[j]:
+                union.append(b[j])
+            j += 1
+        else:  # Case 3: 
+            if not union or union[-1] != a[i]:
+                union.append(a[i])
+            i += 1
+            j += 1
+
+    
+    while i < len(a):
+        if not union or union[-1] != a[i]:
+            union.append(a[i])
+        i += 1
+
+
+    while j < len(b):
+        if not union or union[-1] != b[j]:
+            union.append(b[j])
+        j += 1
+
+    return union
