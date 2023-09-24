@@ -1,0 +1,12 @@
+    a.sort()
+    largest = a[n-1]
+    smallest = a[0]
+    second_largest = 0
+    second_smallest = 999999999999999
+    for i in range(n-1,-1,-1):
+        if a[i]!= largest:
+            second_largest = a[i]
+            for j in range(1,n):
+                if a[j]!=smallest:
+                    second_smallest = a[j]
+                    return second_largest,second_smallest
